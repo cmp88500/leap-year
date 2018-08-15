@@ -1,35 +1,16 @@
-$(function(){
-  console.log("i am working");
-
-  yearInput.each( function() {
-    var yearInput = $("#leap-year").val();
-
-    return false
-});
-});
-
-var leapyear = function(year) {
+var yearEval = function(year) {
   if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
     return true;
   } else {
-    return false;
+  return false;
   }
-}
+};
 
 $(document).ready(function() {
-  $("form#leap-year").submit(function(event) {
+  $("#leap-year").submit(function(event) {
     event.preventDefault();
-    var year = parseInt($("input#year".val());
-    var result = leapYear(year);
-
-  $(".year").text(year);
-
-  if (!result) {
-    $(".not").text("not");
-  } else {
-    $(".not").text("");
-  }
-
-  $("#result").show();
-});
+    var leapInput = parseInt($("#year").val());
+    var result = yearEval(leapInput);
+    $(".test").text(result);
+  });
 });
